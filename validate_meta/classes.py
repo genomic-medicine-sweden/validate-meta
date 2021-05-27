@@ -1,8 +1,4 @@
 import pandas as pd
-from io import StringIO
-from pathlib import Path
-import yaml
-
 from pandas_schema import Column, Schema
 from pandas_schema.validation import LeadingWhitespaceValidation, \
     TrailingWhitespaceValidation, MatchesPatternValidation, InRangeValidation, InListValidation, IsDistinctValidation
