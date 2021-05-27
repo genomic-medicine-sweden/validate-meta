@@ -20,27 +20,31 @@ class DataFrameValidator:
             validators = []
             if 'distinct' in definition['fields'][field_name]:
                 validators.append(self.mk_distinct_validator())
-            if 'pattern'  in definition['fields'][field_name]:
+            if 'pattern' in definition['fields'][field_name]:
                 validators.append(self.mk_pattern_validator(definition['fields'][field_name]['pattern']))
-            if 'list'     in definition['fields'][field_name]:
+            if 'list' in definition['fields'][field_name]:
                 validators.append(self.mk_list_validator(definition['fields'][field_name]['list']))
-            if 'range'    in definition['fields'][field_name]:
+            if 'range' in definition['fields'][field_name]:
                 validators.append(self.mk_list_validator(definition['fields'][field_name]['range']))
 
             columns.append(Column(field_name, validators))
 
         return Schema(columns)
 
-    def mk_distinct_validator(self):
+    @staticmethod
+    def mk_distinct_validator():
         return IsDistinctValidation()
 
-    def mk_pattern_validator(self, pat):
+    @staticmethod
+    def mk_pattern_validator(pat):
         return MatchesPatternValidation(pat)
 
-    def mk_list_validator(self, lst):
+    @staticmethod
+    def mk_list_validator(lst):
         return InListValidation(lst)
 
-    def mk_range_validator(self, rng):
+    @staticmethod
+    def mk_range_validator(rng):
         return InRangeValidation(rng[0], rng[1])
 
     def validate(self):
@@ -72,4 +76,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
