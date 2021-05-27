@@ -10,9 +10,9 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = [ ]
+requirements = ['pandas', 'pandas_schema', 'pyyaml', 'pathlib']
 
-test_requirements = [ ]
+test_requirements = []
 
 setup(
     author="Pär Larsson",
@@ -28,22 +28,22 @@ setup(
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
     ],
-    description="Creating validators for csv files.",
+    description="Package for pandas dataframe validation based on a separate dict template",
     entry_points={
         'console_scripts': [
-            'meta_validate=meta_validate.cli:main',
+            'validate_meta=validate_meta.cli:main',
         ],
     },
     install_requires=requirements,
     license="MIT license",
     long_description=readme + '\n\n' + history,
     include_package_data=True,
-    keywords='meta_validate',
-    name='meta_validate',
-    packages=find_packages(include=['meta_validate', 'meta_validate.*']),
+    keywords='validate_meta',
+    name='validate_meta',
+    packages=find_packages(include=['validate_meta', 'validate_meta.*']),
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/gmc-norr/meta_validate',
-    version='0.1.0',
+    version='0.1.2',
     zip_safe=False,
 )

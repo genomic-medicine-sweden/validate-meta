@@ -1,1 +1,1 @@
-"""Unit test package for meta_validate."""
+"""Unit test package for validate_meta."""

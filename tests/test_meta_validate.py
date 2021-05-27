@@ -1,15 +1,15 @@
 #!/usr/bin/env python
 
-"""Tests for `meta_validate` package."""
+"""Tests for `validate_meta` package."""
 
 
 import unittest
 
-from meta_validate import meta_validate
+from validate_meta import meta_validate
 
 
 class TestMeta_validate(unittest.TestCase):
-    """Tests for `meta_validate` package."""
+    """Tests for `validate_meta` package."""
 
     def setUp(self):
         """Set up test fixtures, if any."""

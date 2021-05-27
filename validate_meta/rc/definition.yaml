@@ -1,0 +1,16 @@
+---
+fields:
+    uid:
+        distinct: True
+        pattern: '\d{4}[A-Z]{4}'
+    sample_name:
+        distinct: True
+        pattern: '\d{4}[A-Z]{4}'
+    date:
+        date_pattern: '%Y-%m-%d'
+    institute:
+        pattern: '\d{4}[A-Z]{4}'
+        range: ['test1', 'test2']
+    files:
+        distinct: True
+        pattern: '\d{4}[A-Z]{4}'

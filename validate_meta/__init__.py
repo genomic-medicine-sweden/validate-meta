@@ -2,4 +2,4 @@
 
 __author__ = """Pär Larsson"""
 __email__ = 'par.g.larsson@regionvasterbotten.se'
-__version__ = '0.1.0'
+__version__ = '0.1.1'
