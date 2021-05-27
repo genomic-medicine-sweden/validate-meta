@@ -25,10 +25,10 @@ def main():
 
     if datafile.exists() and definitionfile.exists():
         df = pd.read_csv(datafile)
-        with definitionfile.open() as fp:
-            schema = yaml.safe_load(fp)
+        with definitionfile.open(encoding='utf8') as fp:
+            definition = yaml.safe_load(fp)
 
-    v = DataFrameValidator(df, schema)
+    v = DataFrameValidator(df, definition)
     errors = v.validate()
     for e in errors:
         print(e)
