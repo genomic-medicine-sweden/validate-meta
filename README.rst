@@ -18,7 +18,7 @@ validate-meta
 
 Validate-meta is a generic validator for pandas dataframes.
 
-The package builds heavily (entirely) on the excellent PandasSchema module by multimeric.
+Extends PandasSchema by allowing definition of validators in dicts (or yaml files).
 
 
 
@@ -29,9 +29,9 @@ The package builds heavily (entirely) on the excellent PandasSchema module by mu
 
 Features
 --------
-* Validate-meta can either be run as a CLI or imported as a class in custom scripts.
-* Definitions for validation is provided to the class as a dict.
-* If the CLI is used, definitions are imported as a YAML.
+* validate-meta can run as a CLI or be imported as a class.
+* Definitions for validation is provided as a dict.
+* In the CLI definitions are imported as a YAML.
 
 Credits
 -------
