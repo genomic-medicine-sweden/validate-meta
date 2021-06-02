@@ -30,7 +30,7 @@ Extends PandasSchema by allowing definition of validators in dicts (or yaml file
 Features
 --------
 * validate-meta can run as a CLI or be imported as a class.
-* Definitions for validation is provided as a dict.
+* Definitions for validation are provided as a dict.
 * In the CLI definitions are imported as a YAML.
 
 Credits
