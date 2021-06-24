@@ -3,7 +3,7 @@ fields:
     internal_id:
         distinct: True
     collection_date:
-        sane_pattern:
+        sane_date_pattern:
             pattern: '%Y-%m-%d'
             sane_start: '2019-10-01'
     filer:
