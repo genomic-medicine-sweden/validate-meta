@@ -117,4 +117,8 @@ fields:
             - "Reinfektion"
             - "Utbrott"
             - "Information saknas"
+    history:
+        'lead_trail_whitespace': True
+
+
 

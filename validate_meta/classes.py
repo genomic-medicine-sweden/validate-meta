@@ -20,15 +20,23 @@ class DataFrameValidator:
 
         for field_name in definition['fields']:
             validators = []
+            if 'lead_trail_whitespace' in definition['fields'][field_name]:
+                validators.append(LeadingWhitespaceValidation())
+                validators.append(TrailingWhitespaceValidation())
+
             if 'distinct' in definition['fields'][field_name]:
                 validators.append(IsDistinctValidation())
+
             if 'pattern' in definition['fields'][field_name]:
                 validators.append(MatchesPatternValidation(definition['fields'][field_name]['pattern']))
+
             if 'list' in definition['fields'][field_name]:
                 validators.append(InListValidation(definition['fields'][field_name]['list']))
+
             if 'range' in definition['fields'][field_name]:
                 validators.append(InRangeValidation(definition['fields'][field_name]['range']['start'],
                                                     definition['fields'][field_name]['range']['end']))
+
             if 'sane_date_pattern' in definition['fields'][field_name]:
                 validators.append(DateFormatSanityValidation(definition['fields'][field_name]['pattern'],
                                                              definition['fields'][field_name]['sane_start']))
