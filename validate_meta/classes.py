@@ -27,9 +27,11 @@ class DataFrameValidator:
             if 'list' in definition['fields'][field_name]:
                 validators.append(InListValidation(definition['fields'][field_name]['list']))
             if 'range' in definition['fields'][field_name]:
-                validators.append(InRangeValidation(definition['fields'][field_name]['range']))
-            if 'date_sanity' in definition['fields'][field_name]:
-                validators.append(DateFormatSanityValidation(definition['fields'][field_name]['interval_start_date']))
+                validators.append(InRangeValidation(definition['fields'][field_name]['range']['start'],
+                                                    definition['fields'][field_name]['range']['end']))
+            if 'sane_date_pattern' in definition['fields'][field_name]:
+                validators.append(DateFormatSanityValidation(definition['fields'][field_name]['pattern'],
+                                                             definition['fields'][field_name]['sane_start']))
 
             columns.append(Column(field_name, validators))
 
@@ -75,8 +77,8 @@ class DateFormatSanityValidation(DateFormatValidation):
 
         if format_ok and sane_ok:
             return True
-        else:
-            return False
+
+        return False
 
     def validate(self, series: pd.Series) -> pd.Series:
         return series.astype(str).apply(self.valid_date)
