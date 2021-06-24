@@ -1,41 +1,41 @@
 ---
 fields:
-    internt_labid:
+    internal_id:
         distinct: True
     urvalskriterium:
         white_trail: True
         white_lead: True
-    datum:
-        date_pattern: '%Y-%m-%d'
-    GISAID_accession:
-        pattern: 'EP\d{7}'
+    date:
+        date_pattern:
+            pattern: '%Y-%m-%d'
+            sane_start: date
     filer:
         distinct: True
-        pattern: '^.*_R1_*.fastq.gz;.*_R2_*.fastq.gz$|^.*_R1_*.fastq.gz$'
+        pattern: '^.*_R1_*.fastq.gz;.*_R2_*.fastq.gz$|^.*_R1_*.fastq.gz$|^.*_R1_*.fast5$'
     regionkod:
         list:
-            - 1
-            - 2
-            - 3
-            - 4
-            - 5
-            - 6
-            - 7
-            - 8
-            - 9
-            - 10
-            - 12
-            - 13
-            - 14
-            - 17
-            - 18
-            - 19
-            - 20
-            - 21
-            - 22
-            - 23
-            - 24
-            - 25
+            - "01"
+            - "02"
+            - "03"
+            - "04"
+            - "05"
+            - "06"
+            - "07"
+            - "08"
+            - "09"
+            - "10"
+            - "12"
+            - "13"
+            - "14"
+            - "17"
+            - "18"
+            - "19"
+            - "20"
+            - "21"
+            - "22"
+            - "23"
+            - "24"
+            - "25"
     labkod:
         list:
             - "SE110"
@@ -70,17 +70,109 @@ fields:
             - "SEDNC"
     instrument:
         list:
-            - "miseq"
-            - "nanopore"
-            - "novaseq"
+            - "Miseq"
+            - "NextSeq 500"
+            - "NextSeq 550"
+            - "NextSeq 2000"
+            - "HiSeq 2500"
+            - "Novaseq"
+            - "MinIon"
+            - "GridIon"
+            - "Flongle"
+            - "Ion Torrent"
     plattform:
         list:
-            - "qiagen"
-            - "illumina"
-            - "oxford nanopore"
-    biblioteksmetod:
+            - "Qiagen"
+            - "Illumina"
+            - "Oxford Nanopore"
+            - "Thermo Fisher Scientific"
+    library_method:
         list:
             - "bla bla"
             - "asdf"
 
-
+fields2:
+    internal_id:
+        distinct: True
+    region_code:
+        list:
+            - "01"
+            - "02"
+            - "03"
+            - "04"
+            - "05"
+            - "06"
+            - "07"
+            - "08"
+            - "09"
+            - "10"
+            - "12"
+            - "13"
+            - "14"
+            - "17"
+            - "18"
+            - "19"
+            - "20"
+            - "21"
+            - "22"
+            - "23"
+            - "24"
+            - "25"
+    lab_code:
+        list:
+            - "SE110"
+            - "SE120"
+            - "SE240"
+            - "SE320"
+            - "SE450"
+            - "SE250"
+            - "SE310"
+            - "SE300"
+            - "SE230"
+            - "SE540"
+            - "SE100"
+            - "SE130"
+            - "SE140"
+            - "SE330"
+            - "SE350"
+            - "SE400"
+            - "SE420"
+            - "SE430"
+            - "SE440"
+            - "SE600"
+            - "SE610"
+            - "SE620"
+            - "SE700"
+            - "SE710"
+            - "SE720"
+            - "SE730"
+            - "SENPC"
+            - "SEADG"
+            - "SEABC"
+            - "SEDNC"
+    selection_criterion:
+        list:
+            - "Allmän övervakning"
+            - "Allmän övervakning öppenvård"
+            - "Allmän övervakning slutenvård"
+            - "Utlandsvistelse"
+            - "Vaccinationsgenombrott"
+            - "Reinfektion"
+            - "Utbrott"
+            - "Information saknas"
+    history:
+        list:
+            - "Original"
+            - "Vero"
+    collection_date:
+                date_pattern: '%Y-%m-%d'
+    host: Host
+    sex: Gender
+    patient_age: Patient age
+    patient_status: Patient status
+    sequencing_technology: Sequencing technology
+    orig_lab_address: Originating lab Address
+    submitting_lab: Submitting lab
+    submitting_lab_address: Submitting lab Address
+    fasta:  FASTA filename
+    type: Type
