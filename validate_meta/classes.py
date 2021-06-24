@@ -70,7 +70,7 @@ class DateFormatSanityValidation(DateFormatValidation):
 
     @property
     def default_message(self):
-        return 'Invalid date format "{}" or outside valid interval "{} - {}"'.format(self.date_format, )
+        return 'Invalid date format or outside valid interval "{}"'.format(self.date_format)
 
     def valid_date(self, val):
         try:
