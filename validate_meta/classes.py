@@ -19,7 +19,6 @@ class DataFrameValidator:
         columns = []
 
         for field_name in definition['fields']:
-            print(field_name)
             validators = []
             if 'lead_trail_whitespace' in definition['fields'][field_name]:
                 validators.append(LeadingWhitespaceValidation())

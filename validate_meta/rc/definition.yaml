@@ -2,21 +2,26 @@
 fields:
     internal_id:
         distinct: True
+        dtype: 'object'
     collection_date:
         sane_date_pattern:
             pattern: '%Y-%m-%d'
             sane_start: '2019-10-01'
+        dtype: 'datetime64'
     files:
         distinct: True
         pattern: '^.*_R1_*.fastq.gz;.*_R2_*.fastq.gz$|^.*_R1_*.fastq.gz$|^.*_R1_*.fast5$'
+        dtype: 'object'
     sex:
         list:
             - "Male"
             - "Female"
             - "unknown"
+        dtype: 'object'
     type:
         list:
             - "betacoronavirus"
+        dtype: 'object'
     region_code:
         list:
             - "01"
@@ -41,6 +46,7 @@ fields:
             - "23"
             - "24"
             - "25"
+        dtype: 'object'
     lab_code:
         list:
             - "SE110"
@@ -73,6 +79,7 @@ fields:
             - "SEADG"
             - "SEABC"
             - "SEDNC"
+        dtype: 'object'
     instrument:
         list:
             - "MiSeq"
@@ -85,21 +92,25 @@ fields:
             - "GridIon"
             - "Flongle"
             - "Ion Torrent"
+        dtype: 'object'
     platform:
         list:
             - "Qiagen"
             - "Illumina"
             - "Oxford Nanopore"
             - "Thermo Fisher Scientific"
+        dtype: 'object'
     library_type:
         list:
             - "artic"
             - "artic midnight"
             - "illumina"
+        dtype: 'object'
     patient_age:
         range:
             start: 0
             end: 118
+        dtype: 'int64'
     patient_status:
         list:
             - "Hospitalized"
@@ -107,6 +118,7 @@ fields:
             - "Live"
             - "Deceased"
             - "unknown"
+        dtype: 'object'
     selection_criterion:
         list:
             - "Allmän övervakning"
@@ -117,8 +129,8 @@ fields:
             - "Reinfektion"
             - "Utbrott"
             - "Information saknas"
+        dtype: 'object'
     history:
-        'lead_trail_whitespace': True
-
-
+        lead_trail_whitespace: True
+        dtype: 'object'
 
