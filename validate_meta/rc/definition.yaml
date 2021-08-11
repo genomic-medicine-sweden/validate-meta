@@ -7,7 +7,7 @@ fields:
         sane_date_pattern:
             pattern: '%Y-%m-%d'
             sane_start: '2019-10-01'
-        dtype: 'datetime64'
+        dtype: 'object'
     files:
         distinct: True
         pattern: '^.*_R1_*.fastq.gz;.*_R2_*.fastq.gz$|^.*_R1_*.fastq.gz$|^.*_R1_*.fast5$'

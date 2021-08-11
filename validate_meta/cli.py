@@ -32,22 +32,26 @@ def main():
             try:
                 definition = yaml.safe_load(fp)
                 dtypes = {k: v['dtype'] for (k, v) in definition['fields'].items()}
-            except:
+            except Exception as e:
                 errors.append("Unable to load yaml field definition file, malformed?")
+                errors.append(e)
 
         if dtypes is not None:
             try:
                 df = pd.read_csv(datafile, dtype=dtypes)
-            except:
+            except Exception as e:
                 errors.append("Unable to load data file. Malformed data csv "
                               "or incorrect dtypes in field definition file?")
+                errors.append(e)
+
 
     if definition is not None and df is not None:
         try:
             v = DataFrameValidator(df, definition)
             errors.extend(v.validate())
-        except:
+        except Exception as e:
             errors.append("Unable to validate pandas dataframe. Problems with data csv or field definition yaml?")
+            errors.append(e)
 
     for e in errors:
         print(e)
