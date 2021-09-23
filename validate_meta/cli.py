@@ -18,25 +18,29 @@ def main():
     group = parser.add_mutually_exclusive_group(required=True)
 
     group.add_argument("-c", dest="csv",
-                        help="csv input file to validate",
+                        help="csv file to validate",
                         metavar="CSV FILE")
 
     group.add_argument("-j", dest="json",
                         help="json file to validate",
                         metavar="JSON FILE")
 
-
     args = parser.parse_args()
 
-    csv_file        = Path(args.csv)
-    json_file       = Path(args.json)
+    if args.csv:
+        csv_file    = Path(args.csv)
+        json_file   = None
+    elif args.json:
+        json_file   = Path(args.json)
+        csv_file    = None
+
     definitionfile  = Path(args.definition)
     definition      = None
     df              = None
     dtypes          = None
     errors          = list()
 
-    if definitionfile.exists() and csv_file.exists() or json_file.exists() :
+    if definitionfile.exists() and (csv_file.exists() or json_file.exists()):
         with definitionfile.open(encoding='utf8') as fp:
             try:
                 definition = yaml.safe_load(fp)
