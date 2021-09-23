@@ -66,7 +66,8 @@ def main():
             v = DataFrameValidator(df, definition)
             errors.extend(v.validate())
         except Exception as e:
-            errors.append("Unable to validate pandas dataframe. Problems with data csv or field definition yaml?")
+            errors.append("Unable to validate pandas dataframe. Problems with data (csv or json) "
+                          "or field definition yaml?")
             errors.append(e)
 
     for e in errors:
