@@ -50,15 +50,15 @@ def main():
                 try:
                     df = pd.read_csv(csv_file, dtype=dtypes)
                 except Exception as e:
-                    errors.append("Unable to load data file. Malformed data csv "
-                                  "or incorrect dtypes in field definition file?")
+                    errors.append("Unable to load data file. Malformed csv or "
+                                  "incorrect dtypes in field definition file?")
                     errors.append(e)
             elif json_file:
                 try:
                     df = pd.read_json(json_file, dtype=dtypes)
                 except Exception as e:
-                    errors.append("Unable to load data file. Malformed data csv "
-                                  "or incorrect dtypes in field definition file?")
+                    errors.append("Unable to load data file. Malformed json or "
+                                  "incorrect dtypes in field definition file?")
                     errors.append(e)
 
     if definition is not None and df is not None:
