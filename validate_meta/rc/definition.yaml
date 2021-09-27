@@ -1,26 +1,74 @@
 ---
 fields:
-    internal_id:
+    internal_lab_id:
         distinct: True
+        dtype: 'object'
+    selection_criterion:
+        list:
+            - 'Allmän övervakning'
+            - 'Allmän övervakning öppenvård'
+            - 'Allmän övervakning slutenvård'
+            - 'Utlandsvistelse'
+            - 'Vaccinationsgenombrott'
+            - 'Reinfektion'
+            - 'Utbrott'
+            - 'Information saknas'
         dtype: 'object'
     collection_date:
         sane_date_pattern:
             pattern: '%Y-%m-%d'
             sane_start: '2019-10-01'
         dtype: 'object'
-    files:
-        distinct: True
-        pattern: '^.*_R1_*.fastq.gz;.*_R2_*.fastq.gz$|^.*_R1_*.fastq.gz$|^.*_R1_*.fast5$'
-        dtype: 'object'
-    sex:
+    patient_age:
+        range:
+            start: 0
+            end: 118
+        dtype: 'int64'
+    patient_sex:
         list:
             - "Male"
             - "Female"
             - "unknown"
         dtype: 'object'
+    patient_status:
+        list:
+            - "Hospitalized"
+            - "Released"
+            - "Live"
+            - "Deceased"
+            - "unknown"
+        dtype: 'object'
     type:
         list:
             - "betacoronavirus"
+        dtype: 'object'
+    sminet_lid: None
+    pseudo_id:
+        distinct: True
+        dtype: 'object'
+    region:
+        list:
+            - 'Region Stockholm - 01'
+            - 'Region Uppsala - 03'
+            - 'Region Sörmland - 04'
+            - 'Region Östergötland - 05'
+            - 'Region Jönköpings län - 06'
+            - 'Region Kronoberg - 07'
+            - 'Region Kalmar län - 08'
+            - 'Region Gotland - 09'
+            - 'Region Blekinge - 10'
+            - 'Region Skåne - 12'
+            - 'Region Halland - 13'
+            - 'Västra Götalandsregionen - 14'
+            - 'Region Värmland - 17'
+            - 'Region Örebro län - 18'
+            - 'Region Västmanland - 19'
+            - 'Region Dalarna - 20'
+            - 'Region Gävleborg - 21'
+            - 'Region Västernorrland - 22'
+            - 'Region Jämtland Härjedalen - 23'
+            - 'Region Västerbotten - 24'
+            - 'Region Norrbotten - 25'
         dtype: 'object'
     region_code:
         list:
@@ -46,6 +94,39 @@ fields:
             - "23"
             - "24"
             - "25"
+        dtype: 'object'
+    lab:
+        list:
+            - 'Växjö - SE110'
+            - 'Malmö - SE120'
+            - 'Kalmar - SE240'
+            - 'Borås - SE320'
+            - 'Karlstad - SE450'
+            - 'Halmstad - SE250'
+            - 'Trollhättan NÄL - SE310'
+            - 'Sahlgrenska - SE300'
+            - 'Karlskrona - SE230'
+            - 'Visby - SE540'
+            - 'Karolinska - SE100'
+            - 'Unilabs - SE130'
+            - 'SYNLAB - SE140'
+            - 'Unilabs1 - SE330'
+            - 'Jönköping - SE350'
+            - 'Linköping - SE400'
+            - 'Unilabs2 - SE420'
+            - 'Västerås - SE430'
+            - 'Örebro - SE440'
+            - 'Uppsala - SE600'
+            - 'Gävle - SE610'
+            - 'Falun - SE620'
+            - 'Sundsvall - SE700'
+            - 'Östersund - SE710'
+            - 'Umeå - SE720'
+            - 'Sunderby, Luleå - SE730'
+            - 'National Pandemic Center - SENPC'
+            - 'A05diagnostics - SEADG'
+            - 'ABC lab - SEABC'
+            - 'Dynamic Code - SEDNC'
         dtype: 'object'
     lab_code:
         list:
@@ -80,57 +161,35 @@ fields:
             - "SEABC"
             - "SEDNC"
         dtype: 'object'
-    instrument:
+    host:
         list:
-            - "MiSeq"
-            - "NextSeq 500"
-            - "NextSeq 550"
-            - "NextSeq 2000"
-            - "HiSeq 2500"
-            - "Novaseq"
-            - "MinIon"
-            - "GridIon"
-            - "Flongle"
-            - "Ion Torrent"
+            - 'Human'
+            - 'Environment'
         dtype: 'object'
-    platform:
+    passage_details:
         list:
-            - "Qiagen"
-            - "Illumina"
-            - "Oxford Nanopore"
-            - "Thermo Fisher Scientific"
+            - 'Original'
+            - 'Vero'
         dtype: 'object'
-    library_type:
+    seq_technology:
         list:
-            - "artic"
-            - "artic midnight"
-            - "illumina"
+            - 'Illumina'
+            - 'Sanger'
+            - 'Nanopore'
+            - 'Ion Torrent'
         dtype: 'object'
-    patient_age:
-        range:
-            start: 0
-            end: 118
-        dtype: 'int64'
-    patient_status:
+    library_method:
         list:
-            - "Hospitalized"
-            - "Released"
-            - "Live"
-            - "Deceased"
-            - "unknown"
+            - 'Artic'
+            - 'NEB'
         dtype: 'object'
-    selection_criterion:
-        list:
-            - "Allmän övervakning"
-            - "Allmän övervakning öppenvård"
-            - "Allmän övervakning slutenvård"
-            - "Utlandsvistelse"
-            - "Vaccinationsgenombrott"
-            - "Reinfektion"
-            - "Utbrott"
-            - "Information saknas"
+    lane: None
+    fastq:
+        distinct: True
+        pattern: '^*.fastq.gz$,*.fastq.gz$'
         dtype: 'object'
-    history:
-        lead_trail_whitespace: True
+    fast5:
+        distinct: True
+        pattern: '^*.fast5$'
         dtype: 'object'
-
+    comment: None
