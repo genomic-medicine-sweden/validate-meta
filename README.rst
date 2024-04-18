@@ -1,3 +1,7 @@
+ARCHIVE
+-------
+This repository was archived on 2024-04-18 as it was no longer in use or maintened
+
 =============
 validate-meta
 =============
@@ -15,12 +19,9 @@ validate-meta
 
 
 
-
 Validate-meta is a generic validator for pandas dataframes.
 
 Extends PandasSchema by allowing definition of validators in dicts (or yaml files).
-
-
 
 
 * Free software: MIT license
@@ -40,3 +41,4 @@ This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypack
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+
